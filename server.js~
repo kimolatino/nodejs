@@ -4,7 +4,12 @@ var path    = require("path");
 var bodyParser = require('body-parser') ;
 
 
-app.use(bodyParser()) ; 
+//app.use(bodyParser()) ; 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/index.html'));
@@ -19,6 +24,6 @@ console.log(req.body.email)
 });
 
 
-app.listen(3000);
+app.listen(5000);
 
-console.log("Running at Port 3000");
+console.log("Running at Port 5000");
